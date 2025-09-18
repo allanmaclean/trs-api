@@ -22,10 +22,6 @@ export class AppService {
   }
 
   async updatePosition(x: number, y: number, direction: Direction): Promise<Moves> {
-    // console.log('Position updated:', { x, y });
-    // const move = this.movesRepository.create({ move: `PLACE ${x},${y}` });
-    // return await this.movesRepository.save(move);
-    // // return 'Position updated';
     try {
       console.log('Position updated:', { x, y, direction });
       const move = this.movesRepository.create({ move: `${x},${y},${direction}` });
