@@ -11,21 +11,14 @@ export class AppService {
     @InjectRepository(Moves)
     private movesRepository: Repository<Moves>,
   ) {}
-  getHello(): string {
-    return 'Hello World!';
-  }
+
   async getPosition(): Promise<Moves> {
     const lastMove = await this.movesRepository.find({
       order: { id: 'DESC' },
       take: 1,
     });
-    if (lastMove) {
-      console.log('Last move retrieved:', lastMove);
-      return lastMove[0];
-    } else {
-      console.log('No moves found, returning default position');
-      return { id: 0, move: '0,0,NORTH' }; // Default position if no moves exist
-    }
+    console.log('Last move from DB:', lastMove);
+    return lastMove[0] || { id: 0, move: '0,0,NORTH' };
   }
 
   async updatePosition(x: number, y: number, direction: Direction): Promise<Moves> {

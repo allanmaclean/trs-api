@@ -9,12 +9,6 @@ export type Direction = typeof DIRECTIONS[number];
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  // Used for testing connectivity
-  // @Get()
-  // getHello(): string {
-  //   return this.appService.getHello();
-  // }
-
   @Get('position')
   getPosition() {
     return this.appService.getPosition();
