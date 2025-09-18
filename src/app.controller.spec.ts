@@ -2,10 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { AppController } from './app.controller';
 import { AppService } from './app.service';
 import { Moves } from './moves.entity';
-import { DataSource, Repository } from 'typeorm';
 import { TypeOrmModule } from '@nestjs/typeorm';
-
-const testConnection = 'testConnection'
 
 describe('AppController', () => {
   let appController: AppController;

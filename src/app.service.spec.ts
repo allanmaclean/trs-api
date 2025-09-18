@@ -1,4 +1,3 @@
-// Generate spec for the app.service
 import { Test, TestingModule } from '@nestjs/testing';
 import { AppService } from './app.service';
 import { Moves } from './moves.entity';
