@@ -9,14 +9,19 @@ export type Direction = typeof DIRECTIONS[number];
 export class AppController {
   constructor(private readonly appService: AppService) {}
 
-  @Get()
-  getHello(): string {
-    return this.appService.getHello();
+  // Used for testing connectivity
+  // @Get()
+  // getHello(): string {
+  //   return this.appService.getHello();
+  // }
+
+  @Get('position')
+  getPosition() {
+    return this.appService.getPosition();
   }
 
   @Post('position')
   updatePosition(@Body() position: { x: number; y: number, direction: Direction }): Promise<string> {
-
     return this.appService.updatePosition(position.x, position.y, position.direction).then(() => {
       return 'Position updated';
     }).catch((error) => {
